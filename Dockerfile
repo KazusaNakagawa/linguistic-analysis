@@ -3,6 +3,7 @@ FROM ubuntu:20.04
 ENV PYTHON_VERSION=3.9.5
 ENV MECAB_VERSION=0.996
 ENV IPADIC_VSERSION=20070801
+ENV MECABRC=/etc/mecabrc
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential  \
@@ -70,6 +71,6 @@ COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
 COPY . .
-WORKDIR /
+WORKDIR /work
 
 CMD ["/usr/bin/bash"]
